@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Editar Producto</h2>
+<form action="{{ url_for('productos.actualizar_producto_route', producto_id=producto['_id']|string) }}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" value="{{ producto['nombre'] }}" required>
+    <br>
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" name="precio" value="{{ producto['precio'] }}" required>
+    <br>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion">{{ producto['descripcion'] }}</textarea>
+    <br>
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

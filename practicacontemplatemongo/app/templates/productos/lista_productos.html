@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Productos</h2>
+<ul>
+    {% for producto in productos %}
+        <li>
+            <a href="{{ url_for('productos.obtener_producto_por_id_route', producto_id=producto['_id']|string) }}">{{ producto['nombre'] }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
